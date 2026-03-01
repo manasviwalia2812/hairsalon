@@ -1,11 +1,29 @@
 // Sticky Navbar & Scroll Reveal
 const navbar = document.querySelector('.navbar');
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
 const reveals = document.querySelectorAll('.scroll-reveal');
 const slides = document.querySelectorAll('.slide');
 const dots = document.querySelectorAll('.dot');
 let slideInterval = setInterval(nextSlide, 5000);
 let currentSlide = 0;
 const counters = document.querySelectorAll('.counter');
+
+// Mobile Menu Toggle
+if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
+}
 
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) navbar.classList.add('scrolled');

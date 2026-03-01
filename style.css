@@ -715,10 +715,332 @@ form input::placeholder {
   font-size: 0.9rem;
 }
 
-/* Responsive */
+/* ============================================
+   MOBILE RESPONSIVE STYLES
+   ============================================ */
+
+/* Tablet and smaller (768px and below) */
 @media (max-width: 768px) {
+  /* Navbar */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--text-dark);
+    transition: 0.3s ease;
+  }
+
+  .navbar.scrolled .hamburger span {
+    background: var(--text-light);
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: rgba(10, 10, 10, 0.98);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    transition: 0.4s ease;
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links a {
+    color: var(--text-light);
+    font-size: 1.2rem;
+  }
+
+  .nav-links .btn-book-nav {
+    margin-top: 20px;
+    padding: 15px 30px;
+  }
+
+  /* Hamburger animation */
+  .hamburger.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+
+  /* Hero Section */
+  .slide-title {
+    font-size: 2.5rem !important;
+    padding: 0 15px;
+  }
+
+  .slide-subtitle {
+    font-size: 1rem !important;
+    padding: 0 15px;
+  }
+
+  .slider-dots {
+    bottom: 20px;
+  }
+
+  /* About Section */
+  .about-grid {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .about-images img {
+    height: 300px;
+  }
+
+  .philosophy-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .philosophy-desc {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  /* Stats */
+  .stats {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .stat-item {
+    flex: 1 1 100%;
+    min-width: 150px;
+  }
+
+  .stat-item:not(:last-child)::after {
+    display: none;
+  }
+
+  .stat-item h3 {
+    font-size: 2rem;
+  }
+
+  /* Services */
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .service-card {
+    height: 300px;
+  }
+
+  /* Gallery */
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .gallery-item {
+    height: 250px;
+  }
+
+  /* Testimonials - horizontal scroll for mobile */
+  .testimonials {
+    height: auto;
+    min-height: 80vh;
+    padding: 60px 20px;
+  }
+
+  .testi-container {
+    height: auto;
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 20px;
+    perspective: none;
+  }
+
+  .testi-card {
+    position: relative;
+    flex: 0 0 280px;
+    scroll-snap-align: center;
+    animation: none;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+  }
+
+  /* Hide floating animations on mobile */
+  .floating-1, .floating-2, .floating-3, .floating-4, 
+  .floating-5, .floating-6, .floating-7, .floating-8, 
+  .floating-9, .floating-10 {
+    animation: none;
+    transform: none;
+  }
+
+  /* Booking Section */
   .book-grid {
     grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .book-container {
+    padding: 30px 20px;
+  }
+
+  .book-form-area h2,
+  .book-map-area h2 {
+    font-size: 1.5rem;
+  }
+
+  /* Section padding */
+  section {
+    padding: 60px 5vw;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .social-links {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+/* Mobile phones (480px and below) */
+@media (max-width: 480px) {
+  /* Navbar */
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .nav-links {
+    width: 100%;
+    right: -100%;
+  }
+
+  /* Hero */
+  .slide-title {
+    font-size: 1.8rem !important;
+  }
+
+  .slide-subtitle {
+    font-size: 0.9rem !important;
+    letter-spacing: 1px;
+  }
+
+  .btn-primary {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+
+  /* About */
+  .about-images img {
+    height: 250px;
+  }
+
+  .philosophy-title {
+    font-size: 1.6rem;
+  }
+
+  .philosophy-desc {
+    font-size: 0.95rem;
+  }
+
+  /* Stats */
+  .stat-item h3 {
+    font-size: 1.8rem;
+  }
+
+  .stat-item p {
+    font-size: 0.8rem;
+  }
+
+  /* Services */
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    height: 280px;
+  }
+
+  .service-card h3 {
+    font-size: 1.2rem;
+    bottom: 20px;
+    left: 15px;
+  }
+
+  /* Gallery */
+  .gallery-item {
+    height: 200px;
+  }
+
+  /* Testimonials */
+  .testi-card {
+    flex: 0 0 260px;
+  }
+
+  /* Booking */
+  .book-form-area h2,
+  .book-map-area h2 {
+    font-size: 1.3rem;
+  }
+
+  form input,
+  form select {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+
+  .map-wrapper iframe {
+    height: 200px;
+  }
+
+  /* Footer */
+  .footer-brand h3 {
+    font-size: 1.5rem;
+  }
+
+  .footer-contact h4,
+  .footer-socials h4 {
+    font-size: 1.1rem;
+  }
+}
+
+/* Ensure hamburger is hidden on desktop */
+@media (min-width: 769px) {
+  .hamburger {
+    display: none;
   }
 }
 
